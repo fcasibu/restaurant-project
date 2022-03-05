@@ -1,0 +1,302 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  display: block;
+}
+
+textarea {
+  resize: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-family: "Open Sans", sans-serif;
+  background-image: url("./landing-bg.jpg");
+  background-size: cover;
+  color: #fff;
+  max-height: 100vh;
+}
+
+.selected {
+  color: gold;
+}
+
+#content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  box-shadow: inset 0 0 10rem black;
+}
+
+/* Startt of Landing Page */
+.links {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 2rem;
+  color: white;
+}
+
+.links li {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 200ms ease-in-out;
+}
+
+.links li:hover {
+  transform: scale(1.1);
+  color: gold;
+}
+
+.showcase {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  transform: translate(-50%, -50%);
+}
+
+.showcase h1 {
+  font-size: 4rem;
+  color: gold;
+}
+
+.showcase button {
+  background: 0;
+  color: gold;
+  font-weight: bold;
+  border: 1px solid gold;
+  border-radius: 9999px;
+  padding: 0.5rem 3rem;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.showcase button:hover {
+  background: gold;
+  color: #333;
+}
+
+.booking {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  gap: 2rem;
+  background: rgb(0, 0, 0, 0.5);
+  border-radius: 0.3rem;
+  padding: 2rem;
+}
+
+.booking h4 {
+  font-size: 1.2rem;
+}
+
+.booking__hours,
+.booking__contact {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+}
+
+/* End of Landing Page */
+
+/* Start of Menu Page */
+.menu-container {
+  width: max-content;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.menu__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: hsl(51, 100%, 60%, 0.9);
+  color: #333;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.menu__item h2 {
+  color: #fff;
+}
+
+.menu__item:hover img {
+  animation: rotate 600ms forwards;
+}
+
+.menu__item:hover .price {
+  animation: rotate 600ms forwards;
+  font-size: 2rem;
+}
+
+.price {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  transition: all 200ms ease-in-out;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  80% {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(0);
+  }
+}
+
+.menu__item img {
+  width: 150px;
+  height: 150px;
+}
+
+/* End of Menu Page */
+
+/* Start of Contact Page */
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  height: auto;
+  align-self: center;
+}
+
+.contact-container h1 {
+  font-size: 3rem;
+  color: gold;
+}
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contact__left {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  gap: 1rem;
+}
+
+.contact__right input {
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  border: 0;
+  outline: 0;
+  width: 100%;
+}
+
+.contact__right input[type="submit"] {
+  margin-top: 1rem;
+}
+
+.contact__right textarea {
+  display: block;
+  padding: 0.3rem 1rem;
+  border: 1px solid green;
+  outline: 0;
+}
+
+.contact__right input:valid {
+  border: 1px solid green;
+}
+
+.contact__right input:invalid {
+  border: 1px solid red;
+}
+
+input[type="submit"] {
+  background: gold;
+  color: #333;
+  font-weight: bold;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+/* End of Contact Page */
+
+/* Media Queries */
+@media (max-width: 720px) {
+  .links {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .menu {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+  }
+
+  .menu__item img {
+    width: 75px;
+  }
+
+  .contact-container h1 {
+    text-align: center;
+  }
+
+  .contact {
+    flex-direction: column;
+  }
+
+  .contact__left {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .booking {
+    width: 100%;
+    padding: 0.5rem 2rem;
+  }
+
+  .menu {
+    gap: 0.5rem;
+  }
+}
